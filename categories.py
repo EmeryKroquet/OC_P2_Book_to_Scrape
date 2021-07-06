@@ -29,7 +29,22 @@ def get_all_pages(url):
 def main():
     book_url = get_all_pages(
         f"https://books.toscrape.com/catalogue/category/books/travel_2/index.html")
-    print(len(book_url))
+    # print(len(book_url))
+
+
+book_info = [{
+    "title":  title,
+    "price": price,
+    "universal_product_code": universal_product_code,
+    "price_excluding_tax": price_excluding_tax,
+    "price_including_tax": price_including_tax,
+    "number_available": number_available,
+    "review_rating": review_rating,
+    "image_url": image_url,
+    "product_description": product_description
+}
+
+]
 
 
 if __name__ == "__main__":
