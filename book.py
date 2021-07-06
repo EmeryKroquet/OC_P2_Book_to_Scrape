@@ -26,7 +26,6 @@ def get_price_excluding(soup):
 
 # fonction de reccuperation prix après tax
 
-
 def get_price_including(soup):
     return soup.select(".table.table-striped td")[3].text
 
