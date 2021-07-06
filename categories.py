@@ -44,6 +44,41 @@ book_info = [{
     "product_description": product_description
 }
 
+    {
+    "title":  title,
+    "price": price,
+    "universal_product_code": universal_product_code,
+    "price_excluding_tax": price_excluding_tax,
+    "price_including_tax": price_including_tax,
+    "number_available": number_available,
+    "review_rating": review_rating,
+    "image_url": image_url,
+    "product_description": product_description
+}
+
+{
+    "title":  title,
+    "price": price,
+    "universal_product_code": universal_product_code,
+    "price_excluding_tax": price_excluding_tax,
+    "price_including_tax": price_including_tax,
+    "number_available": number_available,
+    "review_rating": review_rating,
+    "image_url": image_url,
+    "product_description": product_description
+}
+{
+    "title":  title,
+    "price": price,
+    "universal_product_code": universal_product_code,
+    "price_excluding_tax": price_excluding_tax,
+    "price_including_tax": price_including_tax,
+    "number_available": number_available,
+    "review_rating": review_rating,
+    "image_url": image_url,
+    "product_description": product_description
+}
+
 ]
 
 save_tocsv(books_info_list)
