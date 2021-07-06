@@ -46,6 +46,28 @@ book_info = [{
 
 ]
 
+save_tocsv(books_info_list)
+
+
+def save_tocsv(books_info_list):
+    header = [
+        "title",
+        "price",
+        "review_rating",
+        "number_available",
+        "product_description",
+        "universal_product_code",
+        "price_excluding_tax",
+        "price_including_tax",
+        "image_url"
+    ]
+
+    with open('categorie.csv', 'w') as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=header)
+        writer.writeheader()
+        for row in books_info_list:
+            writer.writerow(row)
+
 
 if __name__ == "__main__":
     main()
