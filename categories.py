@@ -2,11 +2,11 @@ import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 # importation des fonction dans book.py
-from books import book_url_info, get_page
+from book import book_url_info, get_page
+import csv
+
 
 # créations des fonctions de categorie
-
-
 def get_all_pages(url):
     r = requests.get(url)
     soup = BeautifulSoup(r.content, "html.parser")
@@ -16,7 +16,7 @@ def get_all_pages(url):
     for book_url in book_urls:
         book_url = urljoin(url, book_url['href'])
         info = book_url_info(get_page(book_url), book_url)
-
+        print(info)
         books_info_list.append(info)
 
     next = soup.select_one(".next a")
@@ -28,60 +28,10 @@ def get_all_pages(url):
 
 def main():
     book_url = get_all_pages(
-        f"https://books.toscrape.com/catalogue/category/books/travel_2/index.html")
+        f"https://books.toscrape.com/catalogue/category/books_1/index.html")
     # print(len(book_url))
 
-
-book_info = [{
-    "title":  title,
-    "price": price,
-    "universal_product_code": universal_product_code,
-    "price_excluding_tax": price_excluding_tax,
-    "price_including_tax": price_including_tax,
-    "number_available": number_available,
-    "review_rating": review_rating,
-    "image_url": image_url,
-    "product_description": product_description
-}
-
-    {
-    "title":  title,
-    "price": price,
-    "universal_product_code": universal_product_code,
-    "price_excluding_tax": price_excluding_tax,
-    "price_including_tax": price_including_tax,
-    "number_available": number_available,
-    "review_rating": review_rating,
-    "image_url": image_url,
-    "product_description": product_description
-}
-
-{
-    "title":  title,
-    "price": price,
-    "universal_product_code": universal_product_code,
-    "price_excluding_tax": price_excluding_tax,
-    "price_including_tax": price_including_tax,
-    "number_available": number_available,
-    "review_rating": review_rating,
-    "image_url": image_url,
-    "product_description": product_description
-}
-{
-    "title":  title,
-    "price": price,
-    "universal_product_code": universal_product_code,
-    "price_excluding_tax": price_excluding_tax,
-    "price_including_tax": price_including_tax,
-    "number_available": number_available,
-    "review_rating": review_rating,
-    "image_url": image_url,
-    "product_description": product_description
-}
-
-]
-
-save_tocsv(books_info_list)
+    save_tocsv(book_url)
 
 
 def save_tocsv(books_info_list):
