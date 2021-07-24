@@ -26,6 +26,7 @@ def get_price_excluding(soup):
 
 # fonction de reccuperation prix après tax
 
+
 def get_price_including(soup):
     return soup.select(".table.table-striped td")[3].text
 
@@ -84,6 +85,7 @@ def book_url_info(soup, book_url):
     product_description = get_product_description(soup)
 # demande de retour des info afin de les recuper dans un dictionnaire
     return {
+        
         "title": title,
         "price": price,
         "universal_product_code": universal_product_code,
@@ -97,8 +99,8 @@ def book_url_info(soup, book_url):
 
 
 """ fonction main pour recuper 
-et afficher les infos afin le code
-ne puisse ne pas ne pas être excuter
+et afficher les infos afin que le code
+ne puisse ne pas être excuter
 en continuer ou sécuriser
 """
 
