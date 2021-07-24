@@ -27,20 +27,23 @@ def get_all_pages(url):
     return books_info_list
 
 # creat a new function in categories
-def get_url_page(soup):
-    categories = []
+def get_page_categories(soup):
     
+    categories = []
+
     # scrape data for every book URL: this may take some time
 
-    categories = soup.find_all("ul", class_= "nav nav-list")
-    for categorie in categories:
-        categories_lk = urljoin(url, categorie.find("li").a.get("href"))
-        book = categorie.find("li").a. text.strip()
-        book_list = {"categories_lk": categories_lk, "book": book}
-        book_lists.append(book_list)
-        print(book_lists)
-    return book_lists
-    
+    links = soup.find_all("ul", class_= "nav nav-list")
+    for link in links:
+        categories_lk = urljoin(url, link.find("li").a.get("href"))
+        name = link.find("li").a. text.strip()
+        book_list = {
+                    "categories_lk": categories_lk, 
+                    "name": name
+                    }
+        categories.append(book_list)
+        #print(book_lists)
+    return categories
 
 def main():
     book_url = get_all_pages(
@@ -50,10 +53,10 @@ def main():
     save_tocsv(book_url)
 
 
-def save_tocsv(books_info_list, book_lists):
+def save_tocsv(books_info_list, book_list):
     header = [{
         "categories_lk": categories_lk,
-        "book": book,
+        "name": name,
         "title": title,
         "price": price,
         "review_rating": review_rating,
@@ -66,7 +69,7 @@ def save_tocsv(books_info_list, book_lists):
         }
     ]
 
-    with open('books.csv', 'w') as csvfile:
+    with open('files.csv', 'w') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=header)
         writer.writeheader()
         for row in books_info_list:
