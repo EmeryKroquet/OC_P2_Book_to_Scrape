@@ -70,6 +70,7 @@ def get_product_description(soup):
 def get_image_url(soup, url):
     return urljoin(url, soup.select_one(".item.active img")['src'])
 
+
 # appelle des fonctions
 
 
