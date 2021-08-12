@@ -9,4 +9,4 @@ source env/bin/activate
 
 Desactivation de l'environnement : 
 
-deativate
+deactivate
