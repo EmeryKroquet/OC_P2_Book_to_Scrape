@@ -5,6 +5,7 @@ from urllib.parse import urljoin
 from book import book_url_info, get_page
 import csv
 from collections import OrderedDict
+import os
 
 #url = "https://books.toscrape.com/index.html"
 # créations des fonctions de categorie
@@ -35,14 +36,11 @@ def main():
     categories_list = soup.select(".nav.nav-list li a")
     
     for category in categories_list:
-        
         if category['href'] is not None:
             category_name = category.text.strip()
-
             category_url = urljoin(url, category['href'])
-            
-            
             books_list = get_all_pages(category_url)
+            
             save_tocsv(books_list, category_name)
         
 def save_tocsv(books_info_list, category_name):
@@ -64,6 +62,36 @@ def save_tocsv(books_info_list, category_name):
         writer.writeheader()
         for row in books_info_list:
             writer.writerow(row)
+            
+
+def imagedownload(url, folder):
+    try:
+        os.mkdir(os.path.join(os.getcwd(), folder))
+    except:
+        pass
+    os.chdir(os.path.join(os.getcwd(), folder))
+    r = requests.get(url)
+    soup = BeautifulSoup(r.content, 'html.parser')
+    
+    images = soup.select('img')
+
+    for image in images:
+        name = image['alt']
+        link = urljoin(url, image['src'])
+        
+        with open(name + '.jpg', 'wb') as f:
+            im = requests.get(link)
+            f.write(im.content)
+            print('Writing: ', name)
+    #return imagedownload
+        
+# url = imagedownload("https://books.toscrape.com")
+# imageUrl = get_all_pages(url)
+# print(imageUrl)
+    
+    urlImage(imagedownload)
     
 if __name__ == "__main__":
+    
     main()
+    
