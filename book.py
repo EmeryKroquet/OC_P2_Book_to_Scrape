@@ -84,6 +84,13 @@ def book_url_info(soup, book_url):
     review_rating = get_review_rating(soup)
     image_url = get_image_url(soup, book_url)
     product_description = get_product_description(soup)
+    name = universal_product_code 
+    link = image_url
+    
+    with open(name + '.jpg', 'wb') as f:
+        im = requests.get(link)
+        f.write(im.content)
+        print('Téléchargement: ', name)
 # demande de retour des info afin de les recuper dans un dictionnaire
     return {
         
