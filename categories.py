@@ -4,7 +4,7 @@ from urllib.parse import urljoin
 from book import book_url_info, get_page # importation des fonction dans book.py
 import csv
 from collections import OrderedDict
-import os
+
 
 
 # créations des fonctions de categorie
@@ -18,11 +18,13 @@ def get_all_pages(url):
         book_url = urljoin(url, book_url['href'])  
         info = book_url_info(get_page(book_url), book_url)
         books_info_list.append(info)
-            
-    # next = soup.select_one(".next a")
-    # if next is not None:
-    #     url_next = urljoin(url, next['href'])
-    #     books_info_list += get_all_pages(url_next)
+        
+#Est-ce qu'il ya une page next ? 
+# si c'est le cas alors passe à la page suivante et téléchargement les infos de cette page     
+    next = soup.select_one(".next a")
+    if next is not None:
+        url_next = urljoin(url, next['href'])
+        books_info_list += get_all_pages(url_next)
         
     return books_info_list
 
