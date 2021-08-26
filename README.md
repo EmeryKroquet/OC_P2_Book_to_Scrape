@@ -10,3 +10,9 @@ source env/bin/activate
 Desactivation de l'environnement : 
 
 deactivate
+
+Installation des librairies : 
+
+pip install requests 
+
+pip install BeautifulSoup4
