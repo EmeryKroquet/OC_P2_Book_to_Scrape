@@ -3,8 +3,18 @@ import requests
 from bs4 import BeautifulSoup
 # urllib pour concatener les urls
 from urllib.parse import urljoin
+import os
 
 
+folder = "BooksImges"
+
+try:
+    os.mkdir(os.path.join(os.getcwd(), folder)) # joindre le répertoire creer   
+except:
+    pass
+os.chdir(os.path.join(os.getcwd(), folder)) # changer le chemin de répertoire
+
+    
 # debut des fonctions de récuperation des infos d'une page
 
 def get_page(url):
@@ -84,13 +94,15 @@ def book_url_info(soup, book_url):
     review_rating = get_review_rating(soup)
     image_url = get_image_url(soup, book_url)
     product_description = get_product_description(soup)
-    name = universal_product_code 
+    
+    #os.mkdir("BooksImages")
+    name = universal_product_code
     link = image_url
     
-    with open(name + '.jpg', 'wb') as f:
+    with open(name + '.jpg', 'wb') as f: # Ouvrir les fichiers .jpg
         im = requests.get(link)
-        f.write(im.content)
-        print('Téléchargement: ', name)
+        f.write(im.content) # Ecrire les fichiers jpg
+        print('Téléchargement: ', name) 
 # demande de retour des info afin de les recuper dans un dictionnaire
     return {
         
