@@ -3,11 +3,10 @@ Creation de l'environnement de python :
 
     . python -m venv env 
 
-<<<<<<< HEAD
+
  Ativation de l'environnement : 
-=======
+
 Ativation de l'environnement : 
->>>>>>> ff540a1ecdfda3c09be886056417d20c9ad539d8
 
     . source env/bin/activate
 
