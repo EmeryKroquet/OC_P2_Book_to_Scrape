@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
-from book import book_url_info, get_page # importation des fonction dans book.py
+from P2_01_codesource import book_url_info, get_page # importation des fonction dans book.py
 import csv
 from collections import OrderedDict
 
