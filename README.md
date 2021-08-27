@@ -3,7 +3,7 @@ Creation de l'environnement de python :
 
     . python -m venv env 
 
-    . Ativation de l'environnement : 
+Ativation de l'environnement : 
 
     . source env/bin/activate
 
