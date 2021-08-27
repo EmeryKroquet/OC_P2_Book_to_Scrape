@@ -3,7 +3,7 @@ Creation de l'environnement de python :
 
     . python -m venv env 
 
-    . Ativation de l'environnement : 
+ Ativation de l'environnement : 
 
     . source env/bin/activate
 
@@ -18,6 +18,7 @@ Installation des librairies :
     . pip install BeautifulSoup4
 
 
+
 1- Fonctionnalité de cette application : 
 cette application  permet de récuperer des informations sur un site comerciale de vente de livre.
 
@@ -29,9 +30,9 @@ cette application  permet de récuperer des informations sur un site comerciale 
     . recupére le nombre des étoiles 
     . récupère l'url de l'image
 
-ainsi dans la deuxième fonction categories.py qui me permet de récuperer les les categories des livre et de les convertir dans un fichier csv. 
+Ainsi dans la deuxième fonction categories.py qui me permet de récuperer les categories des livre et de les convertir dans un fichier csv. 
 Dans le cas des catégories qui ont une pagination, j'ai utiliser la boucle IF avec la next qui permet de récuperer tous les livres d'une categopries avec pagionation, les images, les urls et toutes les autres informations de celle-ci en faisant appelle à la fonction book, get_page et le dictionaire book_url_info dans le quel sont stoquer les données et les sauvergarder dans un fichier csv.  
 
-L'excution de l'application :
+Excution de l'application :
  . python -m book
  . python -m categories
