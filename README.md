@@ -3,7 +3,11 @@ Creation de l'environnement de python :
 
     . python -m venv env 
 
+<<<<<<< HEAD
  Ativation de l'environnement : 
+=======
+Ativation de l'environnement : 
+>>>>>>> ff540a1ecdfda3c09be886056417d20c9ad539d8
 
     . source env/bin/activate
 
@@ -36,3 +40,8 @@ Dans le cas des catégories qui ont une pagination, j'ai utiliser la boucle IF a
 Excution de l'application :
  . python -m book
  . python -m categories
+
+
+L'excution de l'application :
+     . python -m book
+     . python -m categories
